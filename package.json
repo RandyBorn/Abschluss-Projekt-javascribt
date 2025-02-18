@@ -1,0 +1,15 @@
+{
+  "name": "abschluss-projekt-javascribt",
+  "version": "1.0.0",
+  "main": "Quiz-Fragen-Spiel.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
+}
