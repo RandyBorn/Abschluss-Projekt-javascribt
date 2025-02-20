@@ -85,7 +85,8 @@ function startquizMenü() {
     "Herzlich Willkommen zu unserem heutigen Kinderquiz!😉 Viel Spaß und viel Erfolg! 😜"
   );
 
-  // Auswahl Möglichkeiten zwischen (Mathematik-Quiz) und ()
+  // Auswahl Möglichkeiten zwischen (Mathematik-Quiz) und (Allgemeinwissen-Quiz)
+
   const choice = rl.keyInSelect(
     ["Mathematik-Quiz", "Allgemeinwissen-Quiz"],
     "Wähle dein Quiz"
@@ -99,47 +100,57 @@ function startquizMenü() {
     console.log("Falsche Auswahl Spiel wird Abgebrochen!:(");
   }
 }
+startquizMenü(); // Start des Menüs
 
 // Mathe-Quiz
 function startMathQuiz() {
   let score = 0;
-  console.log("Du hast das Mathe-Quiz gewählt! Viel spaẞ 💡");
+  console.log("\u001b[1;36m Du hast das Mathe-Quiz gewählt Viel spaẞ 💡");
 
-  // Fragen durchgehen und Benutzerantworten abfragen
+  // Fragen im Mathe-Quiz durchgehen
   for (let i = 0; i < math.length; i++) {
     const mthe = math[i];
     score = askQuestionMath(mthe, score);
   }
-
-  console.log(`Du hast ${score} von ${math.length} Punkten erreicht! 🏅`);
+  // End ergebniss und punkte
+  console.log(
+    `Super Du kannst sehr stolz auf dich sein! Du hast ${score} von ${math.length} Punkten erreicht! 🏅 🤓`
+  );
 }
 
 // Allgemeinwissen-Quiz
 function startAllgemeinQuiz() {
   let score = 0;
-  console.log("Du hast das Allgemeinwissen-Quiz gewählt! Viel Erfolg! 🤓");
 
-  // Alle Fragen von Allgemeinwissen-Quiz durchgehen und antwort Mäglichkeiten anzeigen
+  console.log(
+    "\u001b[1;35m Du hast das Allgemeinwissen-Quiz gewählt Viel Spaẞ 🤓"
+  );
+  // Alle Fragen von Allgemeinwissen-Quiz durchgehen
   for (let i = 0; i < questions.length; i++) {
     const question = questions[i];
     score = askQuestion(question, score);
   }
 
-  console.log(`Du hast ${score} von ${questions.length} Punkten erreicht! 🏅`);
+  // End ergebniss und punkte
+  console.log(
+    `Super Du kannst sehr stolz auf dich sein! du hast ${score} von ${questions.length} Punkten erreicht! 🏅 🤓`
+  );
 }
 
-// Funktion die eine Frage stellt und Antwort überprüft
+// Funktion die eine Frage stellt und Antwort überprüft und antwort Möglichkeiten anzeigt
 function askQuestion(obj, score) {
   const userAnswer = rl.question(
     `${obj.question} (Optionen: ${obj.options})\n `
   );
 
   if (obj.answer === obj.options.indexOf(userAnswer)) {
-    console.log("Richtig!👌 Gut gemacht!");
+    console.log("\u001b[1;32m Richtig!👌 Gut gemacht!");
     score++;
   } else {
     console.log(
-      `Falsche Antwort! Die richtige Antwort ist: ${obj.options[obj.answer]}`
+      `\u001b[1;31m Falsche Antwort! Die richtige Antwort ist: ${
+        obj.options[obj.answer]
+      }`
     );
   }
   return score;
@@ -151,14 +162,14 @@ function askQuestionMath(obbj, score) {
   );
 
   if (obbj.answer || obbj.option.indexOf(userAnswer)) {
-    console.log("Richtig!👌 Gut gemacht!");
+    console.log("\u001b[1;32m Richtig!👌 Gut gemacht!");
     score++;
   } else {
     console.log(
-      `Falsche Antwort! Die richtige Antwort ist: ${obbj.option[obbj.answerr]}`
+      `\u001b[1;31m  Falsche Antwort! Die richtige Antwort ist: ${
+        obbj.option[obbj.answerr]
+      }  `
     );
   }
   return score;
 }
-
-startquizMenü(); // Start des Menüs
